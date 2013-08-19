@@ -1,0 +1,14 @@
+<% if @blogs.present? %>
+<%= div_for @blogs do |blog| %>
+  <h3>
+    <%= link_to blog.title, blog %>
+     <small>
+    	<%= link_to "", edit_blog_path(blog) ,:class=>" icon-edit"%>
+    	<%= link_to "" ,blog_path(blog), :confirm => "Are You Sure ?", :method => :delete,:class=>"icon-trash"%>
+     </small>
+  </h3>
+  <%= simple_format raw(blog.message) %>
+<% end %>
+<% else %>
+ No Blogs Added Yet.....
+<% end %>
